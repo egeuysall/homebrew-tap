@@ -32,7 +32,8 @@ jobs:
         run: |
           brew style --fix Formula/*.rb
           brew style Formula/*.rb
-          brew audit --new --tap egeuysall/tap
+          # Architecture suffixes such as arm64 make Homebrew scan "64" as the URL version.
+          brew audit --new --tap egeuysall/tap --except version
           for formula in bri ibx zap; do
             brew install --build-from-source --formula "egeuysall/tap/${formula}"
             brew test "${formula}"
