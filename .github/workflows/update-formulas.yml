@@ -25,15 +25,18 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: ruby scripts/update-formulas.rb
 
+      - name: Register checkout as tap
+        run: brew tap egeuysall/tap "$GITHUB_WORKSPACE"
+
       - name: Check formulas
         run: |
           brew style --fix Formula/*.rb
           brew style Formula/*.rb
           brew audit --new --tap egeuysall/tap
           for formula in bri ibx zap; do
-            brew install --build-from-source "./Formula/${formula}.rb"
+            brew install --build-from-source --formula "egeuysall/tap/${formula}"
             brew test "${formula}"
-            brew uninstall --force "${formula}"
+            brew uninstall --formula --force "${formula}"
           done
 
       - name: Commit updates
