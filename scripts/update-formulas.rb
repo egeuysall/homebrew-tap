@@ -106,6 +106,7 @@ def formula_for(name, config, version, assets, manifest)
     "  desc \"#{config[:desc]}\"",
     "  homepage \"#{config[:homepage]}\""
   ]
+  lines << "  version \"#{version}\"" unless name == "ibx"
   lines << "  license \"#{config[:license]}\"" if config[:license]
 
   if name == "ibx"

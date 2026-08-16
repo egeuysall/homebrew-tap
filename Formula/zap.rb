@@ -1,6 +1,7 @@
 class Zap < Formula
   desc "CLI for downloading video and audio with Zap"
   homepage "https://github.com/egeuysall/zap"
+  version "0.1.4"
 
   livecheck do
     url :stable
