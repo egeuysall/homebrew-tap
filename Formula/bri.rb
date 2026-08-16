@@ -1,7 +1,6 @@
 class Bri < Formula
   desc "CLI for publishing Markdown to Bri"
   homepage "https://bri.fyi"
-  version "2.1.37"
   license "GPL-3.0-only"
 
   livecheck do

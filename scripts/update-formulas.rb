@@ -104,8 +104,7 @@ def formula_for(name, config, version, assets, manifest)
   lines = [
     "class #{config[:class_name]} < Formula",
     "  desc \"#{config[:desc]}\"",
-    "  homepage \"#{config[:homepage]}\"",
-    "  version \"#{version}\""
+    "  homepage \"#{config[:homepage]}\""
   ]
   lines << "  license \"#{config[:license]}\"" if config[:license]
 
